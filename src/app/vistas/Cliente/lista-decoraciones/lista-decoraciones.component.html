@@ -1,0 +1,29 @@
+<div class="container">
+    <h2 class="text-center">DECORACIONES</h2>
+    <div class="card-border-color:rgba(0,0)">
+      <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="null">
+        <div class="row">
+          <ng-container *ngFor="let itemProducto of ListaProductos">
+            <div class="col-sm-4">
+              <div class="card text-center" style="width: 10rem;">
+                <img [src]="itemProducto.imagen" class="card-img-top">
+                <div class="card-body">
+                  <h6 class="card-title">{{itemProducto.nombre}}</h6>
+                  <p class="card-text">S/ {{itemProducto.precio}}</p>
+                  <a class="btn btn-primary">AGREGAR</a>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          
+          
+        </div>
+        <a>
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a>
+      </div>
+      <div class="card-body text-center">
+        <button routerLink="/Visualizar-decoraciones" type="button" class="btn btn-primary btn-lg">MÁS DECORACIONES</button>
+      </div>
+    </div>
+  </div>

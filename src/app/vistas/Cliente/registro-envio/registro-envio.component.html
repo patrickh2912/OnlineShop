@@ -1,0 +1,119 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="row justify-content-center" style="margin: 2%;">
+      <div class="col-6">
+        <form class="forms">
+          <div class="card">
+            <div class="card-header">
+              <strong>Direccion de Envio</strong> 
+            </div>
+            <div class="card-body">
+          <div class="form-row" id="forms-2">
+            <div class="form-group">
+              <label for="inputAddress">Direccion Envio 1</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+              <label for="inputAddress2">Direccion Envio 2</label>
+              <input type="text" class="form-control" id="inputAddress2"
+              placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">Departamento</label>
+              <select id="inputState" class="form-control">
+                <option selected >Lima</option>
+                <option>Arequipa</option>
+                <option>Piura</option>
+                <option>Tarapoto</option>
+                <option>Ica</option>
+                <option>Tacna</option>
+                <option>Ayacucho</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">Distrito</label>
+                <input type="text" class="form-control" id="inputCity">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">Provincia</label>
+                <input type="text" class="form-control" id="inputCity">
+              </div>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputZip">Cod-postal</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+          </div>
+            </div>
+          </div>
+          
+        </form>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Datos de Transporte</strong>  
+          </div>
+          <div class="card-body">
+            <form class="forms" id="forms-2">
+              <div class="form-row">
+            
+                <div class="form-group col-md-4">
+                  <label for="inputState">Medio de Transporte</label>
+                  <select id="inputState" class="form-control">
+                    <option selected >...</option>
+                    <option>Bus Interprovincial</option>
+                    <option>Avion</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4 my-3">
+                  <label for="inputState">Empresa</label>
+                  <select id="inputState" class="form-control">
+                    <option selected >...</option>
+                    <option>ZBUS</option>
+                    <option>FLORES</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress2">Costo de Envio</label>
+                  <!-- <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"> -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                      S/0.5 por prenda
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                      S/0.6 por prenda
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+                    <label class="form-check-label" for="exampleRadios3">
+                      S/0.4 por prenda
+                    </label>
+                  </div>
+                </div>
+                <!-- <button type="submit" class="btn btn-primary" id="buton-envio">Registrar Datos de Envio</button> -->
+                <div class="shadow-none p-3 my-2 bg-light rounded" id="inf">Monto Total Costo Adicional Calculado por Envio S/. 20</div>
+                <button type="submit" class="btn btn-primary col-md-auto mt-2 me-3" id="buton-envio" routerLink="/PagarPedidoEstandar">Registrar Datos de Envio</button>
+                <button type="submit" class="btn btn-primary col-md-auto mt-2 ms-3" id="buton-envio" >Cancelar</button>
+              </div>
+              <!-- <button type="submit" class="btn btn-primary" id="buton-envio">Registrar Datos de Envio</button> -->
+            </form>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    
+    
+  </div>
+  
+

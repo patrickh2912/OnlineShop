@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-9">
+            <div class="border border-2"> 
+              <div class="m-4">
+                <h3>Ingresar</h3>
+            </div>
+            <div class="mb-3 px-4">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="usuario" >   
+                
+              </div>
+              
+              
+            </div>
+            <div class="mb-3 px-4">
+              <label for="exampleInputPassword1" class="form-label" >Password</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill"></i></span>
+                <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password">
+              </div>
+            </div>
+            
+            <div class="mb-4 px-3 d-grid">
+                <button type="submit" class="btn btn-primary" (click)="login()">Ingresar</button>
+            </div>
+            <div class="mb-4 px-3 d-grid">
+              <a href="#" id="RecoverPassword">¿Olvido su contraseña?</a> &nbsp; | &nbsp;
+							<a style="cursor: pointer;" routerLink="/Registrar" >Crear una cuenta</a>
+          </div>
+            
+            </div>
+        </div>
+
+

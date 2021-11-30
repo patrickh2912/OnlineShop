@@ -1,0 +1,311 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">DECORACIÓN AÑADIDA</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="./assets/imagenes/Decoraciones/decoracion2.jpg" class="img-fluid">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">RESERVAR</button>
+            <button type="button" class="btn btn-primary">PAGAR</button>
+        </div>
+        <div class="col-xs-4" class="text-center mx-2 my-2">
+            <button type="button" class="btn btn-secondary" routerLink="/Pedido-especial" data-bs-dismiss="modal">VOLVER A PEDIDO ESPECIAL</button>
+        </div>
+      </div>
+    </div>
+</div>
+<main>
+    <section class="py-5 text-center container">
+        <div class="row py-log-5">
+            <div class="col-log-6 col-md-8 mx-auto">
+                <h1>DECORACIONES</h1>
+            </div>
+        </div>
+    </section>
+    <div class="row">
+        <div class="col-3">
+            <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+                <a class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                    <span class="fs-1 fw-semibold">FILTRO</span>
+                </a>
+                <ul class="list-unstyled ps-0">
+                    <!-- Filtro de materiales de jeans -->
+                    <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#material-collapse" aria-expanded="true">
+                      MATERIAL
+                    </button>
+                    <div class="collapse show" id="material-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li *ngFor="let material of Materiales">
+                          <a href="/Visualizar-decoraciones" class="link-dark rounded">
+                          {{material}}</a>
+                        </li>
+                      </ul>
+                    </div>
+                    </li>
+                    <!-- Filtro de colores de decoración -->
+                    <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#color-collapse" aria-expanded="true">
+                      COLOR
+                    </button>
+                    <div class="collapse show" id="color-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li *ngFor="let color of Colors">
+                          <a href="/Visualizar-decoraciones" class="link-dark rounded">
+                            {{color}}</a>
+                        </li>
+                      </ul>
+                    </div>
+                    </li>
+                    <!-- Filtro de posición de la decoración en el jeans-->
+                    <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#posicion-collapse" aria-expanded="true">
+                      POSICIÓN
+                    </button>
+                    <div class="collapse show" id="posicion-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li *ngFor="let posicion of Posiciones">
+                          <a href="/Visualizar-decoraciones" class="link-dark rounded">
+                            {{posicion}}</a>
+                        </li>
+                      </ul>
+                    </div>
+                    </li>
+                    <!-- Filtro de modelo de jeans -->
+                    <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#modelo-collapse" aria-expanded="true">
+                      MODELO DE JEANS
+                    </button>
+                    <div class="collapse show" id="modelo-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li *ngFor="let modeloJean of ModelosJeans">
+                          <a href="/Visualizar-decoraciones" class="link-dark rounded">
+                            {{modeloJean}}
+                          </a></li>
+                      </ul>
+                    </div>
+                    </li>
+                    <!-- Filtro de precio de decoraciones -->
+                    <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#precio-collapse" aria-expanded="true">
+                      PRECIO
+                    </button>
+                    <div class="collapse show" id="precio-collapse">
+                        <div class="accordion-body">
+                            <div class="form-check" *ngFor="let rango of RangoPrecios">
+                              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                              <label class="form-check-label" for="flexCheckDefault">
+                                  0-15
+                              </label>
+                            </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                  16-30
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                  31-45
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                  46-60
+                                </label>
+                              </div>
+                        </div>
+                    </div>
+                    </li>
+                    <li class="border-top my-3"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="album py-5 bg-light">
+                <div class="container">
+                    <div class="row row-cols-1 roe-cols-sm-2 row-cols-md-3 g-3">
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="./assets/imagenes/Decoraciones/decoracion1.jpg" class="img-fluid" alt="...">
+                                <div class="card-body">
+                                    <h5>DECORACION01</h5>
+                                    <p class="card-text">
+                                        Deming de algodón serge
+                                    </p>
+                                    <p>Plomo</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">AGREGAR</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">VER DETALLES</button>
+                                      </div>
+                                      <small class="text-muted">S/ 10.49</small>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="./assets/imagenes/Decoraciones/decoracion2.jpg" class="img-fluid" alt="...">
+                                <div class="card-body">
+                                    <h5>DECORACION02</h5>
+                                    <p class="card-text">
+                                        Deming crud
+                                    </p>
+                                    <p>Negro</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">AGREGAR</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">VER DETALLES</button>
+                                      </div>
+                                      <small class="text-muted">S/7.99</small>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="./assets/imagenes/Decoraciones/decoracion3.jpg" class="img-fluid" alt="...">
+                                <div class="card-body">
+                                    <h5>DECORACION03</h5>
+                                    <p class="card-text">
+                                        Demin de orillo
+                                    </p>
+                                    <p>Blanco</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">AGREGAR</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">VER DETALLES</button>
+                                      </div>
+                                      <small class="text-muted">S/19.99</small>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="./assets/imagenes/Decoraciones/decoracion4.jpg" class="img-fluid" alt="...">
+                                <div class="card-body">
+                                    <h5>DECORACION04</h5>
+                                    <p class="card-text">
+                                        Deming de orillo
+                                    </p>
+                                    <p>Diseño de país</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">AGREGAR</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">VER DETALLES</button>
+                                      </div>
+                                      <small class="text-muted">S/ 15.49</small>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="./assets/imagenes/Decoraciones/decoracion5.jpg" class="img-fluid" alt="...">
+                                <div class="card-body">
+                                    <h5>DECORACION05</h5>
+                                    <p class="card-text">
+                                        Demin crud
+                                    </p>
+                                    <p>Blanco</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">AGREGAR</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">VER DETALLES</button>
+                                      </div>
+                                      <small class="text-muted">S/ 9.99</small>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="./assets/imagenes/Decoraciones/decoracion6.jpg" class="img-fluid" alt="...">
+                                <div class="card-body">
+                                    <h5>DECORACION06</h5>
+                                    <p class="card-text">
+                                        Demin orgánico
+                                    </p>
+                                    <p>Dorado</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">AGREGAR</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">VER DETALLES</button>
+                                      </div>
+                                      <small class="text-muted">S/ 11.99</small>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="./assets/imagenes/Decoraciones/decoracion7.jpg" class="img-fluid" alt="...">
+                                <div class="card-body">
+                                    <h5>DECORACION07</h5>
+                                    <p class="card-text">
+                                        Demin orgánico
+                                    </p>
+                                    <p>Bordado</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">AGREGAR</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">VER DETALLES</button>
+                                      </div>
+                                      <small class="text-muted">S/ 11.99</small>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="./assets/imagenes/Decoraciones/decoracion8.jpg" class="img-fluid" alt="...">
+                                <div class="card-body">
+                                    <h5>DECORACION08</h5>
+                                    <p class="card-text">
+                                        Demin orgánico
+                                    </p>
+                                    <p>Bordado</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">AGREGAR</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">VER DETALLES</button>
+                                      </div>
+                                      <small class="text-muted">S/ 11.99</small>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="./assets/imagenes/Decoraciones/decoracion9.jpg" class="img-fluid" alt="...">
+                                <div class="card-body">
+                                    <h5>DECORACION09</h5>
+                                    <p class="card-text">
+                                        Demin orgánico
+                                    </p>
+                                    <p>Bordado</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">AGREGAR</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">VER DETALLES</button>
+                                      </div>
+                                      <small class="text-muted">S/ 11.99</small>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
