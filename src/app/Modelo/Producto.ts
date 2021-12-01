@@ -1,6 +1,6 @@
 export class Producto{
-    idProducto:number;
-    nombre:String;
-    tipoCaracteristica:String;
-    descripcion:String;
+    idProducto!: number;
+    descripcion!: String;
+    costo!: number;
+    tipoPrecio!: String;
 }

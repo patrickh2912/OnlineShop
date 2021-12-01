@@ -91,7 +91,7 @@
                                         <!-- start product image -->
                                         <div class="product-image">
                                             <!-- start product image -->
-                                            <a href="#">
+                                            <a (click)="getProducto(producto.idProducto)" style="cursor: pointer;">
                                                 <!-- image -->
                                                 <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image1.jpg" src="assets/images/product-images/product-image1.jpg" alt="image" title="product">
                                                 <!-- End image -->
@@ -151,7 +151,6 @@
                                         <!-- End product details -->
                                     </div>
                                     
-                                    
                                 </div>
                             </div>
                         </div>
@@ -179,6 +178,10 @@
     </div>
     </body>
 
+    <div >
+        {{nombreUnico}}
+        
+    </div>
     <!--
 <div *ngFor="let caracteristica of tipoCaracteristicas">
     {{caracteristica.tipoCaracteristica}}
