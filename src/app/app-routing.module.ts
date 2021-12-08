@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormRegistroComponent } from './components/form-registro/form-registro.component';
+import { CarritoComponent } from './vistas/Cliente/carrito/carrito.component';
 import { DecoracionesComponent } from './vistas/Cliente/decoraciones/decoraciones.component';
 import { DetalleProductoComponent } from './vistas/Cliente/detalle-producto/detalle-producto.component';
 import { IngresarComponent } from './vistas/Cliente/ingresar/ingresar.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'Nosotros', component:NosotrosComponent},
   {path:'DetalleProducto',component:DetalleProductoComponent},
   {path:'Ingresar',component:IngresarComponent},
+  {path:'Carrito',component:CarritoComponent},
   {path:'Envio',component:RegistroEnvioComponent},
   {path:'Decoraciones',component:DecoracionesComponent},
   {path:'VisualizarDecoraciones',component:ListaDecoracionesComponent},

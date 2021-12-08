@@ -9,10 +9,10 @@ import { ServiceLoginService } from 'src/app/service/service-login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  usuario:string
-  password:string
-  cuenta:Cuenta;
-  nombre:string
+  usuario!:string
+  password!:string
+  cuenta!:Cuenta;
+  nombre!:string
   constructor(private router:Router,public serviceLogin:ServiceLoginService,) {
     
    }
@@ -21,9 +21,6 @@ export class LoginComponent implements OnInit {
     
   }
   /*
-  getMenuJsonContent(data:any)
-    return (data as any).Menu; // aqui obtenemos el array de elementos de la propiedad Menu
-  }*/
   login(){
     const user = {cuenta: this.usuario,contrasenia:this.password};
     this.serviceLogin.login(user).subscribe( data => {
@@ -40,5 +37,5 @@ export class LoginComponent implements OnInit {
       alert(this.nombre)
       this.router.navigate([""])}
     });
-  }
+  }*/
 }

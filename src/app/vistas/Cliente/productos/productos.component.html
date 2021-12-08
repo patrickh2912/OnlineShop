@@ -23,11 +23,14 @@
                         <div class="sidebar_tags">
                             <!--Categories-->
                             <div class="sidebar_widget categories filter-widget" *ngFor="let tcaracteristica of tipoCaracteristicas">
-                                <div class="widget-title"><h2>{{tcaracteristica.tipoCaracteristica}}</h2></div>
+                                <div class="widget-title"><h2>{{tcaracteristica.descripcion}}</h2></div>
                                 <div class="widget-content">
                                     <ul class="sidebar_categories">
                                         <ng-container *ngFor="let caracteristica of caracteristicas">
-                                            <li class="lvl-1" *ngIf="tcaracteristica.tipoCaracteristica===caracteristica.tipoCaracteristica"><a style="cursor: pointer;" (click)="getProductosByCaract(caracteristica.idTipoCaracteristicasProducto)" class="site-nav">{{caracteristica.descripcion}}</a></li>
+                                           <li class="lvl-1" *ngIf="tcaracteristica.idTipoCaracteristica==caracteristica.idTipoCaracteristicasProducto"><a style="cursor: pointer;" (click)="obtenerProductosByFiltro(caracteristica.tipoAplicacion,tcaracteristica.descripcion)" class="site-nav">
+                                            {{caracteristica.tipoAplicacion}}</a>
+                                        </li>
+                                           
                                         </ng-container>
                                         
                                     </ul>
@@ -43,13 +46,13 @@
                     <div class="col-12 col-sm-12 col-md-9 col-lg-9 main-col shop-grid-5">
                         <div class="productList">
                             <div class="category-description">
-                                <h3>Jeans Otoño</h3>
-                                <p>Lorem Ipsum is simply dumm sheets containing.</p>
+                                <h3>Jeans </h3>
+                                
                                 
                             </div>
                             <hr>
                             <!--Toolbar-->
-                            <button type="button" class="btn btn-filter d-block d-md-none d-lg-none"> Product Filters</button>
+                            <button type="button" class="btn btn-filter d-block d-md-none d-lg-none"> Filtros</button>
                             <div class="toolbar">
                                 <div class="filters-toolbar-wrapper">
                                     <div class="row">
@@ -62,7 +65,7 @@
                                             </a>
                                         </div>
                                         <div class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
-                                            <span class="filters-toolbar__product-count">Showing: 22</span>
+                                            <span class="filters-toolbar__product-count">Mostrando: {{filtroService.productosByCateg.length}}</span>
                                         </div>
                                         <div class="col-4 col-md-4 col-lg-4 text-right">
                                             <div class="filters-toolbar__item">
@@ -87,11 +90,11 @@
                             <!--End Toolbar-->
                             <div class="grid-products grid--view-items">
                                 <div class="row">
-                                    <div  *ngFor="let producto of productos"  class="col-6 col-sm-6 col-md-4 col-lg-2 item">
+                                    <div  *ngFor="let productoByCateg of filtroService.productosByCateg"  class="col-6 col-sm-6 col-md-4 col-lg-2 item">
                                         <!-- start product image -->
                                         <div class="product-image">
                                             <!-- start product image -->
-                                            <a (click)="getProducto(producto.idProducto)" style="cursor: pointer;">
+                                            <a style="cursor: pointer;" (click)="obtenerCaracteristicasProdById(productoByCateg.idProducto)" >
                                                 <!-- image -->
                                                 <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image1.jpg" src="assets/images/product-images/product-image1.jpg" alt="image" title="product">
                                                 <!-- End image -->
@@ -130,15 +133,10 @@
                                         <div class="product-details text-center">
                                             <!-- product name -->
                                             <div class="product-name">
-                                                <a href="#">{{producto.nombre}}</a>
+                                                <a href="#">{{productoByCateg.descripcion}}</a>
                                             </div>
                                             <!-- End product name -->
-                                            <!-- product price -->
-                                            <div class="product-price">
-                                                <span class="old-price">$500.00</span>
-                                                <span class="price">$600.00</span>
-                                            </div>
-                                            <!-- End product price -->
+                                            
                                             
                                             <div class="product-review">
                                                 <i class="font-13 fa fa-star"></i>
@@ -176,14 +174,9 @@
         
         
     </div>
+    
     </body>
+    <app-footer></app-footer>
+    
 
-    <div >
-        {{nombreUnico}}
-        
-    </div>
-    <!--
-<div *ngFor="let caracteristica of tipoCaracteristicas">
-    {{caracteristica.tipoCaracteristica}}
-</div>-->
-
+    

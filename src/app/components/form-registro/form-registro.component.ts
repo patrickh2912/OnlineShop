@@ -8,14 +8,14 @@ import { RegistrarServiceService } from 'src/app/service/registrar-service.servi
   styleUrls: ['./form-registro.component.css']
 })
 export class FormRegistroComponent implements OnInit {
-    parte:Parte;
-    idParte:number;
-    tipo:String;
-    nombre:String;
-    apellido:String;
-    fechaNacimiento:Date;
+    parte!:Parte;
+    idParte!:number;
+    tipo!:String;
+    nombre!:String;
+    apellido!:String;
+    fechaNacimiento!:Date;
     edad:number;
-    genero:String;
+    genero!:String;
   constructor(public registroService:RegistrarServiceService) {
     this.edad=12;
     this.tipo="cliente"
