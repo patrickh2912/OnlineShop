@@ -9,6 +9,9 @@ export class ServicioCarritoService {
   /*------------------RESUMEN CARRITO---------------*/
   public montoTotal:number=0;
   public cantidadTotal:number=0;
+  public costoTransporte:number=0;
+  /*------------------------------------------------*/
+  
   constructor() { 
     
   }

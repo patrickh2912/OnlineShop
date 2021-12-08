@@ -11,7 +11,7 @@ export class ServiceLoginService {
     this.nombreUsuario=' '
    }
   login(user:any):Observable<any>{
-    return this.http.post("http://localhost:8080/usuarios", user);
+    return this.http.post("http://localhost:8080/login", user);
 
   }
 }

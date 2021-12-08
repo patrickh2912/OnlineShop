@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     
   }
-  /*
+  
   login(){
     const user = {cuenta: this.usuario,contrasenia:this.password};
     this.serviceLogin.login(user).subscribe( data => {
@@ -37,5 +37,5 @@ export class LoginComponent implements OnInit {
       alert(this.nombre)
       this.router.navigate([""])}
     });
-  }*/
+  }
 }
