@@ -29,36 +29,63 @@
                             </div>
                            </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <label for="CustomerEmail">idParte</label>
-                                <input type="number" [(ngModel)]="idParte" >
-                                
-                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="CustomerPassword">Usuario</label>
+                                        <input type="text" value="" [(ngModel)]="cuenta">
+                                                                    
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="CustomerPassword">Contraseña</label>
+                                        <input type="password" value="" [(ngModel)]="password">
+                                                                    
+                                    </div>
+                                </div>
+                            </div> 
+
+                            
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="row">
                                 <div class="col-6">
-                                <div class="form-group">
-                                    <label for="CustomerPassword">Fecha</label>
-                                    <input type="date" value="" [(ngModel)]="fechaNacimiento">
-                                                            	
+                                    <div class="form-group">
+                                        <label for="CustomerPassword">Fecha Nacimiento</label>
+                                        <input type="date" value="" [(ngModel)]="fechaNacimiento">
+                                                                    
+                                    </div>
                                 </div>
-                            </div>
                             
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="CustomerPassword">Sexo</label>
-                                    <select [(ngModel)]="genero">
-                                        <option value="Femenino">
-                                            Femenino
-                                        </option>
-                                        <option value="Masculino">
-                                            Masculino
-                                        </option>
-                                    </select>
-                                                          	
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="CustomerPassword">Sexo</label>
+                                        <select [(ngModel)]="genero">
+                                            <option value="F">
+                                                Femenino
+                                            </option>
+                                            <option value="M">
+                                                Masculino
+                                            </option>
+                                        </select>
+                                                                
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="CustomerPassword">Tipo</label>
+                                        <select [(ngModel)]="tipoUsuario">
+                                            <option value="Cliente">
+                                                Cliente
+                                            </option>
+                                            <option value="Administrador">
+                                                Administrador
+                                            </option>
+                                        </select>
+                                                                
+                                    </div>
+                                </div>
                             </div>
                             
                         </div>

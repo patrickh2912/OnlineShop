@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
       else{
       alert(this.cuenta.cuenta)
       this.serviceLogin.nombreUsuario=this.cuenta.cuenta
-      alert(this.nombre)
       this.router.navigate([""])}
     });
   }

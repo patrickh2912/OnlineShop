@@ -1,8 +1,12 @@
 export class Parte{
     idParte!:Number;
+    cuenta!:String;
+    contrasenia!:String;
+    nombres!:String;
+    apellidos!:String;
+    genero!:String;
+    idCuentasUsuario!:String;
     tipo!:String;
-    nombre!:String;
-    apellido!:String;
     fechaNacimiento!:Date;
-    edad!:number;
+
 }
