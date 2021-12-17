@@ -30,6 +30,8 @@ export class ProductosComponent implements OnInit {
   /*-------------------------------------*/
   productosByFiltro:ProductoFiltro[]=[];
   tallaEscogida:String='';
+  /*--------------obtener imagenes------------------*/
+  imagenes:String[]=[]
   constructor(public filtroService:ServiceFiltroService, private router:Router, public DetalleProd:ServicioDetalleProductoService ) { 
     
   }
@@ -75,10 +77,13 @@ export class ProductosComponent implements OnInit {
     setTimeout(() => {
       this.filtroService.productosByCateg=this.productosByFiltro;
      }, 800);
+     setTimeout(() => {
+      this.aniadirImagenes();
+     }, 300);
     
    
   }
-  obtenerCaracteristicasProdById(codProducto:number){
+  obtenerCaracteristicasProdById(codProducto:number,rutaImagen:String){
     const codigo={
       idProducto:codProducto
     }
@@ -95,7 +100,7 @@ export class ProductosComponent implements OnInit {
     setTimeout(() => {
       this.router.navigate(["/DetalleProducto"]);
      }, 800);
-    
+    this.DetalleProd.imagenReferencial=rutaImagen;
   }
  
 
@@ -168,4 +173,49 @@ export class ProductosComponent implements OnInit {
       this.router.navigate(["/DetalleProducto"])
     })
   }
+  /*--------------------------------------------------------------------*/
+  asignarImagenes(idCategoria:number){
+    if(idCategoria>=1 && idCategoria<=18){
+      return "./assets/Productos/producto1_1.jpg";
+    }
+    else if(idCategoria>=19 && idCategoria<=34){
+      return "./assets/Productos/producto2_1.jpg";
+    }
+    else if(idCategoria>=35 && idCategoria<=59){
+      return "./assets/Productos/producto3_1.jpg";
+    }
+    else if(idCategoria>=60 && idCategoria<=89){
+      return "./assets/Productos/producto4_1.jpg";
+    }
+    else if(idCategoria>=90 && idCategoria<=98){
+      return "./assets/Productos/producto5_1.jpg";
+    }
+    else{
+      return "./assets/Productos/producto6_1.jpg";
+    }
+    
+    
+  }
+  aniadirImagenes(){
+    
+    for (let i = this.imagenes.length; i > 0; i--) {
+      this.imagenes.pop();
+    }
+    setTimeout(() => {
+      for(var i = 0; i < this.filtroService.productosByCateg.length; i++) {
+        this.imagenes[i]=this.asignarImagenes(this.filtroService.productosByCateg[i].idProducto)
+        
+      };
+     }, 400);
+    
+  }
+  
+  /*
+  for(var i = 0; i < this..length; i++) {
+    
+    const descripcion = this.productosById[i].descripcion;
+      this.nombre.push(descripcion);
+  }
+  
+  }*/
 }

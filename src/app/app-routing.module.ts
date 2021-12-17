@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormRegistroComponent } from './components/form-registro/form-registro.component';
+import { VisualizarPedEspecialComponent } from './vistas/Admin/PedidoEspecial/visualizar-ped-especial/visualizar-ped-especial.component';
 import { CarritoComponent } from './vistas/Cliente/carrito/carrito.component';
 import { DecoracionesComponent } from './vistas/Cliente/decoraciones/decoraciones.component';
 import { DetalleProductoComponent } from './vistas/Cliente/detalle-producto/detalle-producto.component';
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:'Decoraciones',component:DecoracionesComponent},
   {path:'VisualizarDecoraciones',component:ListaDecoracionesComponent},
   {path:'Pago',component:PagoComponent},
-  {path:'Registrar',component:RegistrarComponent}
+  {path:'Registrar',component:RegistrarComponent},
+  {path:'VisualizarPedidos',component:VisualizarPedEspecialComponent}
 
 ];
 

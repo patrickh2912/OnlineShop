@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ServiceLoginService {
-  nombreUsuario:String
+  nombreUsuario:String;
+  public idCuentasUsuario!:number;
   constructor(private http:HttpClient){
     this.nombreUsuario=' '
    }

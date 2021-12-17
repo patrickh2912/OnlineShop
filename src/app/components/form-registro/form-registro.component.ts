@@ -44,11 +44,14 @@ export class FormRegistroComponent implements OnInit {
         console.log(data);
         this.parte=data.usuario;
         console.log(this.parte)
-        alert("usuario registrado"+"  "+ "BIENVENIDO:"+" "+this.parte.nombres);
-        this.router.navigate([""])
+        
+        //
       }
     )
     
+  }
+  redirigir(){
+    this.router.navigate([""])
   }
 
 }

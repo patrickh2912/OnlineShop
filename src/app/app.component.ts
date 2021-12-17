@@ -11,6 +11,7 @@ import { ServiceLoginService } from './service/service-login.service';
 export class AppComponent {
   title = 'OnlineShop';
   dato:String=" "
+  palabraBuscar:String=" "
   //productos:Producto[]=[]
   constructor(public loginService:ServiceLoginService, public busquedaService:ServiceFiltroService) { 
     this.loadScripts(); 
@@ -23,6 +24,20 @@ export class AppComponent {
       
     });
   }
+  obtenerProductoByBuscador(){
+    const busqueda={datoFiltro:this.palabraBuscar}
+    this.busquedaService.obtenerProductoByBuscador(busqueda).subscribe( data => {
+      console.log(data);
+      this.busquedaService.productosByCateg=data;
+      
+    });
+
+  }
+
+
+
+
+
 
 
 loadScripts() { 

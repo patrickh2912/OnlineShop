@@ -32,9 +32,17 @@ export class LoginComponent implements OnInit {
         alert("Usuario o password incorrecto, intentelo nuevamente");
       }
       else{
-      alert(this.cuenta.cuenta)
-      this.serviceLogin.nombreUsuario=this.cuenta.cuenta
-      this.router.navigate([""])}
+      this.serviceLogin.nombreUsuario=this.cuenta.cuenta;
+      this.serviceLogin.idCuentasUsuario=this.cuenta.idCuentasUsuario;
+      if(data.usuario.tipo=="Cliente"){
+        this.router.navigate([""])
+      }
+      else{
+        this.router.navigate(["/VisualizarPedidos"])
+      }
+      
+      
+    }
     });
   }
 }

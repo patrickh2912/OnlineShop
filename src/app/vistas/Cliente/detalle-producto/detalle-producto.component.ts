@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { articuloPedido } from 'src/app/Modelo/ArticuloPedido';
 import { DetalleProducto } from 'src/app/Modelo/DetalleProducto';
+import { Pedido } from 'src/app/Modelo/Pedido';
 import { Producto } from 'src/app/Modelo/Producto';
 import { ProductoImagen } from 'src/app/Modelo/ProductoImagen';
 import { ServiceFiltroService } from 'src/app/service/service-filtro.service';
@@ -21,6 +23,9 @@ export class DetalleProductoComponent implements OnInit {
   id:number=0;
   cantidad:number=1;
   producto:any;
+  pedido:Pedido;
+  articulo:articuloPedido;
+  
   constructor(public detalleService:ServiceFiltroService, public imagenService:ServiceFiltroService,
     public DetalleProd:ServicioDetalleProductoService, public serviceCarrito:ServicioCarritoService) { 
     this.modelo=DetalleProd.modelo;
@@ -81,6 +86,9 @@ export class DetalleProductoComponent implements OnInit {
   }*/
 /*--------------------------------LLENAR EL CARRITO DE COMPRA----------------------------------*/
 public AniadirProducto(cod:number,nom:string,precio:number,num:number){
+  if(this.serviceCarrito.CarritoCompra.length==0){
+    this.crearPedidoInicial();
+  }
   this.serviceCarrito.CarritoCompra.push({idPedido:1,
   idProducto:cod,
   cantidad:num,
@@ -88,13 +96,55 @@ public AniadirProducto(cod:number,nom:string,precio:number,num:number){
   precioUnitario:precio,
   precioTotal:precio*num,
   terminosCondiciones:'Pedido'})
-  
-  alert('Agregado')
+  setTimeout(()=>{this.registrarArticuloPedido(cod,nom,precio,num)}, 3000);
   this.serviceCarrito.calcularMonto();
   this.serviceCarrito.calcularCantidad();
 }
-
-
+crearPedidoInicial(){
+  const pedido={
+    idPedido:0,
+    fechaIncio:"2021-12-10",
+    tipo:"venta estandar",
+    descripcion:" ",
+    montoTotal:0,
+    subtotal:0,
+    descuento:0,
+    fechaEstEntrega:"2021-12-20",
+    estado:" ",
+    idCuentasUsuario:0,
+    idEnvio:0};
+    this.serviceCarrito.registrarPedidoInicial(pedido).subscribe(
+      data=>{
+        this.pedido=data.pedidoVenta;
+        this.serviceCarrito.idPedido=data.pedidoVenta.idPedido;
+        console.log(pedido)
+      }
+    )
+  };
+  registrarArticuloPedido(cod:number,nom:string,precio:number,num:number){
+        const articulo={
+          idPedido:this.serviceCarrito.idPedido,
+          idProducto:cod,
+          cantidad:num,
+          descripcion:nom,
+          precioUnitario:precio,
+          precioTotal:precio*num,
+          terminosCondiciones:' ',
+          };
+          
+          this.serviceCarrito.registrarArticulo(articulo).subscribe(
+            data=>{
+              this.articulo=data.articuloPedido;
+              //alert(this.carritoService.idPedido);
+              console.log(articulo)
+            }
+          )
+          
+        
+      };
+      
+    
+  
 
 
 

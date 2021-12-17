@@ -1,1 +1,106 @@
-<p>visualizar-ped-especial works!</p>
+<div class="container mt-4">   
+<div class="row justify-content-center"> 
+  <div class="col-12 my-4">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button (click)="filtrarPedido('Pedido estandar')" type="button" class="btn btn-primary">Pedidos Especiales</button>
+      <button  (click)="filtrarPedido('Pedido produccion')"type="button" class="btn btn-primary">Pedidos de Producción</button>
+    </div>
+  </div>
+</div>
+
+<table>
+  <thead class="cart__row cart__header">
+      <tr>
+          <th colspan="-1" class="text-left">idPedido</th>
+          <th colspan="0" class="text-left">Fecha emision pedido</th>
+          <th class="text-left">Tipo</th>
+          <th class="text-left">Monto total</th>
+          <th class="text-left">Estado</th>
+          <th class="text-left">Codigo usuario</th>
+          <th class="text-left">Codigo envio</th>
+          <th class="action">&nbsp;</th>
+      </tr>
+  </thead>
+  <ng-container *ngFor="let pedido of pedidosRealizados; let i =index">
+    <tbody >
+      <tr class="cart__row border-bottom line1 cart-flex border-top" *ngIf="pedido.tipo===filtroPedido">
+          <td class="cart__meta small--text-center cart-flex-item">
+              <div class="list-view-item__title">
+                  <a >{{pedido.idPedido}}</a>
+              </div>
+              
+          </td>
+          <td class="cart__meta small--text-left cart-flex-item">
+              <div class="list-view-item__title">
+                  <a href="#">{{pedido.fechaIncio}}</a>
+              </div>
+              
+          </td>
+          <td class="cart__price-wrapper cart-flex-item">
+              <span class="money">{{pedido.tipo}}</span>
+          </td>
+          <td class="cart__price-wrapper cart-flex-item">
+            <span class="money">S/.{{pedido.montoTotal}}</span>
+          </td>
+           <td class="cart__price-wrapper cart-flex-item">
+          <span class="money">{{pedido.estado}}</span>
+          </td>
+          <td class="cart__price-wrapper cart-flex-item">
+            <span class="money"> {{pedido.idCuentasUsuario}}</span>
+            </td>
+            <td class="cart__price-wrapper cart-flex-item">
+              <span class="money"> {{pedido.idEnvio}}</span>
+              </td>
+          <td class="text-center small--hide">
+            <a  style="cursor: pointer;" class="btn btn--secondary cart__remove" title="Remove tem"  (click)="obtenerInformacionPedido(pedido.idPedido)"   data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <i class="bi bi-pencil-square"></i>
+            </a>
+            
+          </td>
+      </tr>
+      
+  </tbody>
+  </ng-container>
+  
+  
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Informacion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5>Codigo de pedido: {{pedidoService.idPedido}}</h5>
+        <h5>MontoTotal: {{pedidoService.montoTotal}}</h5>
+        <div class="row">
+          
+          <div class="col-5">
+            <select name="" id="" disabled>
+              <option value="" selected>{{pedidoService.estado}}</option>
+            </select> 
+          </div>
+          <div class="col-1">
+            <p class="mt-2">A</p>
+          </div>
+          <div class="col-5">
+            <select name="" id="" [(ngModel)]="estadoCambio">
+              <option value="Entregado" >Entregado</option>
+              <option value="Cancelado" >Cancelado</option>
+              <option value="Por entregar" >Por entregar</option>
+            </select>
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="actualizarEstado(pedidoService.idPedido,pedidoService.idCuentasUsuario,pedidoService.idEnvio)">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>

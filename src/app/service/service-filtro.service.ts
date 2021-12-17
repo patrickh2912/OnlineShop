@@ -45,6 +45,9 @@ export class ServiceFiltroService {
   obtenerProductosByFiltro(dato:any):Observable<any>{
     return this.http.post("http://localhost:8080/filtrar",dato);
   }
-
+  /*----------------------------------------------------------------------*/
+  obtenerProductoByBuscador(dato:any):Observable<any>{
+    return this.http.post("http://localhost:8080/obtenerProductoByBuscador",dato);
+  }
 
 }

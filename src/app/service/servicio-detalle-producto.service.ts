@@ -12,6 +12,7 @@ export class ServicioDetalleProductoService {
   tallas:DetalleProducto[]=[];
 /*---------Detalle producto precio----------------------------------------*/
     detalleProducto:PrecioProducto[]=[]
+    imagenReferencial:String=''
 /*---------------------Detalle de producto unico-------------------------------------------------*/
     public id:number=0;
     public color:String;
